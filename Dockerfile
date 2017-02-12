@@ -31,11 +31,11 @@ COPY start.sh /start.sh
 
 RUN chmod 777 /start.sh
 
-RUN mkdir /data && chown beanstalkd:beanstalkd /data
+RUN chown beanstalkd:beanstalkd /srv
 
-VOLUME /data
+VOLUME /srv
 
-WORKDIR /data
+WORKDIR /srv
 
 USER beanstalkd
 
