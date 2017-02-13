@@ -18,8 +18,6 @@ rm -rf /usr/share/man/?? && \
 rm -rf /usr/share/man/??_* && \
 rm -rf /var/lib/apt/lists/*
 
-EXPOSE 11300
-
 COPY confs/apparmor/beanstalkd.conf /etc/apparmor/beanstalkd.conf
 
 COPY confs/supervisord/supervisord.conf /etc/supervisord.conf
@@ -27,11 +25,12 @@ COPY confs/supervisord/supervisord.conf /etc/supervisord.conf
 COPY start.sh /start.sh
 
 RUN chmod 777 /start.sh && \
-mkdir -p /srv/log/supervisor/ && \
-touch /srv/log/supervisord-beanstalkd.log && \
+mkdir -p /srv/log/ && \
 chown -Rf beanstalkd:beanstalkd /srv && \
 touch /var/run/beanstalkd.pid && \
 chown beanstalkd:beanstalkd /var/run/beanstalkd.pid
+
+EXPOSE 11300
 
 VOLUME /srv
 
