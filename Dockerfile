@@ -18,13 +18,10 @@ rm -rf /usr/share/man/?? && \
 rm -rf /usr/share/man/??_* && \
 rm -rf /var/lib/apt/lists/*
 
-# Port to expose (default: {{SERVICE_PORT}})
 EXPOSE 11300
 
-# Copy apparmor conf
 COPY confs/apparmor/beanstalkd.conf /etc/apparmor/beanstalkd.conf
 
-# Copy supervisor conf
 COPY confs/supervisord/supervisord.conf /etc/supervisord.conf
 
 COPY start.sh /start.sh
@@ -40,5 +37,4 @@ WORKDIR /srv
 
 USER beanstalkd
 
-# Set entrypoint
 CMD ["/bin/bash", "/start.sh"]
