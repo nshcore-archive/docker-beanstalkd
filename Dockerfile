@@ -29,9 +29,10 @@ COPY confs/supervisord/supervisord.conf /etc/supervisord.conf
 
 COPY start.sh /start.sh
 
-RUN chmod 777 /start.sh
-
-RUN chown beanstalkd:beanstalkd /srv
+RUN chmod 777 /start.sh && \
+mkdir -p /srv/log/supervisor/ && \
+touch /srv/log/supervisor/beanstalkd.log && \
+chown beanstalkd:beanstalkd /srv
 
 VOLUME /srv
 
