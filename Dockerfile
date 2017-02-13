@@ -29,7 +29,7 @@ COPY start.sh /start.sh
 RUN chmod 777 /start.sh && \
 mkdir -p /srv/log/supervisor/ && \
 touch /srv/log/supervisor/beanstalkd.log && \
-chown beanstalkd:beanstalkd /srv && \
+chown -Rf beanstalkd:beanstalkd /srv && \
 touch /var/run/beanstalkd.pid && \
 chown beanstalkd:beanstalkd /var/run/beanstalkd.pid
 
