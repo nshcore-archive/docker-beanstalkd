@@ -18,7 +18,7 @@ rm -rf /usr/share/man/?? && \
 rm -rf /usr/share/man/??_* && \
 rm -rf /var/lib/apt/lists/*
 
-COPY confs/apparmor/beanstalkd.conf /etc/apparmor/beanstalkd.conf
+COPY confs/apparmor/beanstalkd.conf /etc/apparmor.d/beanstalkd.conf
 
 COPY confs/supervisord/supervisord.conf /etc/supervisord.conf
 
